@@ -7,9 +7,15 @@ import os
 app = Flask(__name__, static_folder='.')
 CORS(app)
 
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+OPENAI_BASE_URL = os.environ.get('BASE_URL', 'https://api.deepseek.com')
+
+if not OPENAI_API_KEY:
+    raise RuntimeError('Missing required environment variable: OPENAI_API_KEY')
+
 client = OpenAI(
-    api_key="sk-d5b0afe06e8b4cc8afe47fbb2fa0adee",
-    base_url="https://api.deepseek.com"
+    api_key=OPENAI_API_KEY,
+    base_url=OPENAI_BASE_URL
 )
 
 # 提供静态 HTML 页面
