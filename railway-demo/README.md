@@ -39,10 +39,20 @@
 
 5. 部署完成，获得域名如 https://your-app.up.railway.app
 
-## API 端点
+## 故障排除
 
-- `GET /` - 主页
-- `GET /api/test` - 测试 API
-- `POST /api/echo` - 回显消息，body: `{"message": "hello"}`
-- `POST /api/chat` - 与 DeepSeek 聊天，body: `{"message": "你好"}`
-- `POST /api/chat-stream` - 流式聊天，body: `{"message": "讲个故事"}`
+如果 Railway 部署失败：
+
+1. **Railpack 错误**：项目已配置使用 Nixpacks 构建器
+2. **依赖问题**：检查 Railway 日志中的具体错误
+3. **环境变量**：确保设置了 `OPENAI_API_KEY`
+
+### 重新部署
+
+推送更改到 GitHub，Railway 会自动重新部署：
+
+```bash
+git add .
+git commit -m "Fix Railway deployment configuration"
+git push
+```
