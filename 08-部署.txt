@@ -1,0 +1,21 @@
+部署后端到免费平台（推荐Railway）
+
+注册 railway.app，绑定GitHub
+
+新建项目，从GitHub导入你的代码仓库
+
+设置环境变量 OPENAI_API_KEY 和 BASE_URL（Railway里添加）
+
+添加 start.sh 或直接用 python app.py
+
+Railway会自动分配域名，如 https://xxx.up.railway.app
+
+前端部署：Vercel（免费）
+
+把 index.html 推送到GitHub仓库
+
+登录 vercel.com，导入该仓库
+
+修改前端JS里的 fetch 地址为你的Railway后端域名
+
+部署完成，获得 https://xxx.vercel.app
